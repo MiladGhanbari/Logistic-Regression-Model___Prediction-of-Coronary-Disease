@@ -9,10 +9,18 @@ coronary disease. This dataset is from the Duke University Cardiovascular Diseas
 - sigdz: significant coronary disease by cardiac catheterization (defined as >= 75% diameter narrowing in at least one important coronary artery: 1=yes, 0=no)
 - tvdlm: severe coronary disease (defined as three vessel or left main disease by cardiac catheterization: 1=yes, 0=no)
 
-First, the path directory is set.  
+First, the path of the working directory is set.  
 ```sh
 # Working directory which contains the data file (please change accordingly)  
 dir = "F:/RProjects/LRM"
 setwd(dir)
 ```
 
+Then, read in the dataset:
+
+```sh
+CPdata <- read.csv("acath2.csv")
+```
+Before designing logistic regression model, drawing boxplot of each variable with respect to significant coronary disease status can be useful to catch the behaviour of each variable. For instance, boxplot of age versus sigdz (defined above) is as follows:
+
+![alt text](BoxplotAge.png)
