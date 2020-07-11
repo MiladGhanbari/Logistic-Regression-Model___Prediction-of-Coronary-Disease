@@ -1,4 +1,4 @@
-# Logistic-Regression-Model___Prediction-of-Coronary-Disease
+# Logistic Regression Model for Prediction of Coronary Disease
 A regression model is designed for the prediction of coronary disease. This model evaluates the effect of sex, age, and cholesterol on the probability of
 coronary disease. This dataset is from the Duke University Cardiovascular Disease Databank and consists of 2258 patients and 6 variables. The patients were referred to Duke University Medical Center for chest pain. The variables included in the dataset "acath2.csv" are the following:
 
