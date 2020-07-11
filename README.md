@@ -62,3 +62,4 @@ auc(CPdata$sigdz, PredValues2, plot=TRUE, print.thres="best",
     print.auc=TRUE, print.auc.cex=2)
 ```
 
+![alt text](ROC_Curve.png)
