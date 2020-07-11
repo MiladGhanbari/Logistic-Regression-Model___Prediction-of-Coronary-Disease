@@ -26,8 +26,7 @@ Before designing logistic regression model, drawing boxplot of each variable wit
 ![alt text](Boxplot_age.png)
 
 It looks like the age of patients with coronary disease is generally higher. The same can be done for the rest of variables.  
-We can run logistic regression (and many other kinds of regression) using the glm function. For logistic regres-
-sion, we have to specify the parameter family=binomial:
+We can run logistic regression (and many other kinds of regression) using the glm function. For logistic regression, we have to specify the parameter family=binomial:
 
 ```sh
 CPfit2 <- glm(sigdz~sex + age + cholest, data = CPdata, family = "binomial")
@@ -63,3 +62,5 @@ auc(CPdata$sigdz, PredValues2, plot=TRUE, print.thres="best",
 ```
 
 ![alt text](ROC_Curve.png)
+
+The ROC curve allows us to visualize the sensitivity-specificity tradeoff for our logistic regression model. The diagonal line represents what the ROC curve would look like for a random predictor. The curve for a good model is close to the top left corner of the plot. The ROC curve is great for visualization, but we usually want a value that summarizes goodness of fit. We can measure how close the curve is to the top left corner by looking at the area under the ROC curve (AUC). As can be seen from the above curve, the AUC is 0.789.
