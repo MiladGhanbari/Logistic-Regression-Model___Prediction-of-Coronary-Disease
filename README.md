@@ -23,4 +23,42 @@ CPdata <- read.csv("acath2.csv")
 ```
 Before designing logistic regression model, drawing boxplot of each variable with respect to significant coronary disease status can be useful to catch the behaviour of each variable. For instance, boxplot of age versus sigdz (defined above) is as follows:
 
+![alt text](Boxplot_age.png)
+
+It looks like the age of patients with coronary disease is generally higher. The same can be done for the rest of variables.  
+We can run logistic regression (and many other kinds of regression) using the glm function. For logistic regres-
+sion, we have to specify the parameter family=binomial:
+
+```sh
+CPfit2 <- glm(sigdz~sex + age + cholest, data = CPdata, family = "binomial")
+```
+
+To get the odds ratio for variables, we need to exponentiate the coefficients. For example, the odds ratio for the effect of cholesterol:
+```sh
+exp(CPfit2$coefficients[2])  
+## (Intercept)      sex        age       cholest  
+## 0.0153307     0.1231459  1.0724942   1.0090463  
+```
+
+Interpretation for OR (odds ratio) of sex: the odds of significant coronary disease among female is 0.1231 times as the odds of significant coronary disease among male, among the patients with the same level of cholesterol and the same age. The same interpretation can be made for the other two variables (age & cholest).
+
+Furthermore, the 95% confidence interval can be calculated:
+```sh
+exp(confint(CPfit2))  
+##                   2.5 %         97.5 %
+## (Intercept)    0.007212296    0.03201997
+## sex            0.098380930    0.15341970
+## age            1.060440958    1.08497168
+## cholest        1.006947174    1.01120648
+```
+If the confidence interval for the odds ratio does not overlap the value 1, then the variable is a significant predictor of coronary disease.  
+  
+  
+In order to evaluate the performance of the designed logistic regression model, let's create an ROC curve (receiver operating characteristic curve) for our logistic regression model.  
+
+```sh
+auc(CPdata$sigdz, PredValues2, plot=TRUE, print.thres="best",
+    auc.polygon=TRUE, auc.polygon.col="lightblue", asp=FALSE,
+    print.auc=TRUE, print.auc.cex=2)
+```
 
