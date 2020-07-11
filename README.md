@@ -8,3 +8,11 @@ coronary disease. This dataset is from the Duke University Cardiovascular Diseas
 - cholest: cholesterol (in mg)
 - sigdz: significant coronary disease by cardiac catheterization (defined as >= 75% diameter narrowing in at least one important coronary artery: 1=yes, 0=no)
 - tvdlm: severe coronary disease (defined as three vessel or left main disease by cardiac catheterization: 1=yes, 0=no)
+
+First, the path directory is set.  
+```sh
+# Working directory which contains the data file (please change accordingly)  
+dir = "F:/RProjects/LRM"
+setwd(dir)
+```
+
