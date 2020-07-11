@@ -23,4 +23,4 @@ CPdata <- read.csv("acath2.csv")
 ```
 Before designing logistic regression model, drawing boxplot of each variable with respect to significant coronary disease status can be useful to catch the behaviour of each variable. For instance, boxplot of age versus sigdz (defined above) is as follows:
 
-![alt text](BoxplotAge.png)
+
